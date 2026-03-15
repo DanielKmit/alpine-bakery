@@ -83,7 +83,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-brown-500/95 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-brown-600/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="font-heading text-cream text-xl tracking-wide">
@@ -138,7 +138,7 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center noise-overlay overflow-hidden">
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       <Image
         src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1920&h=1080&fit=crop&q=80"
         alt="Fresh bread in a rustic bakery"
@@ -146,17 +146,17 @@ function Hero() {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-brown-500/70 via-brown-500/50 to-brown-500/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       <div className="relative z-10 text-center px-4 max-w-4xl">
         <p className="text-wheat-200 tracking-[0.3em] uppercase text-sm mb-4 font-body">
           Innsbruck, Austria
         </p>
-        <h1 className="font-heading text-cream text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-tight">
+        <h1 className="font-heading text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-tight drop-shadow-lg">
           Alpine
           <br />
           Bakery
         </h1>
-        <p className="text-cream/90 text-lg sm:text-xl font-body max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/95 text-lg sm:text-xl font-body max-w-2xl mx-auto leading-relaxed">
           Handcrafted bread, baked fresh daily since 1987
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -205,7 +205,7 @@ function OurStory() {
             <br />
             of baking
           </h2>
-          <div className="space-y-4 text-brown-400 leading-relaxed">
+          <div className="space-y-4 text-brown-300 leading-relaxed text-base">
             <p>
               In 1987, Friedrich Berger converted a small alpine chalet on Innstraße into
               something the neighborhood didn&apos;t know it needed: a bakery that treated bread
@@ -254,7 +254,7 @@ function ProductCard({ product }: { product: (typeof PRODUCTS)[0] }) {
           <h3 className="font-heading text-xl text-brown">{product.name}</h3>
           <span className="text-brick font-heading text-lg">{product.price}</span>
         </div>
-        <p className="text-brown-300 text-sm leading-relaxed">{product.description}</p>
+        <p className="text-brown-400 text-sm leading-relaxed">{product.description}</p>
       </div>
     </div>
   );
@@ -271,7 +271,7 @@ function TheBread() {
           <h2 className="font-heading text-4xl sm:text-5xl text-brown mb-4">
             Baked with intention
           </h2>
-          <p className="text-brown-300 max-w-lg mx-auto">
+          <p className="text-brown-400 max-w-lg mx-auto text-base leading-relaxed">
             Every loaf tells a story. Slow-fermented, stone-baked, made with flour from
             local Tyrolean farms.
           </p>
@@ -297,7 +297,7 @@ function DailySchedule() {
           <h2 className="font-heading text-4xl sm:text-5xl text-brown mb-4">
             What&apos;s fresh &amp; when
           </h2>
-          <p className="text-brown-300">
+          <p className="text-brown-400 text-base">
             We bake in batches throughout the day. Here&apos;s when to catch your favorites.
           </p>
         </div>
@@ -310,7 +310,7 @@ function DailySchedule() {
               <div className="text-4xl mb-4">{slot.icon}</div>
               <h3 className="font-heading text-2xl text-brown mb-1">{slot.time}</h3>
               <p className="text-brick text-sm font-body mb-4">{slot.hours}</p>
-              <p className="text-brown-300 text-sm leading-relaxed">{slot.items}</p>
+              <p className="text-brown-400 text-sm leading-relaxed">{slot.items}</p>
             </div>
           ))}
         </div>
@@ -321,7 +321,7 @@ function DailySchedule() {
 
 function FindUs() {
   return (
-    <section id="find-us" className="py-24 px-4 bg-brown-500">
+    <section id="find-us" className="py-24 px-4 bg-brown-600">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
         <div className="text-cream">
           <p className="text-wheat uppercase tracking-[0.2em] text-sm font-body mb-4">
@@ -386,7 +386,7 @@ function Newsletter() {
         <h2 className="font-heading text-3xl sm:text-4xl text-brown mb-4">
           Get fresh updates
         </h2>
-        <p className="text-brown-300 mb-8">
+        <p className="text-brown-400 mb-8 text-base">
           Join our newsletter for weekly specials, seasonal recipes, and bakery news.
           No spam — just bread.
         </p>
@@ -425,7 +425,7 @@ function Newsletter() {
 
 function Footer() {
   return (
-    <footer className="bg-brown-700 text-cream/50 py-12 px-4">
+    <footer className="bg-brown-800 text-cream/60 py-12 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="font-heading text-cream text-lg">Alpine Bakery</div>
         <p className="text-sm">

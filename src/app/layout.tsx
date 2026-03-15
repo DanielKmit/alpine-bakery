@@ -72,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${playfair.variable} ${sourceSans.variable}`}>
-      <body className="font-body bg-cream text-brown antialiased">
+      <body className="font-body bg-cream text-brown antialiased text-base leading-relaxed">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
