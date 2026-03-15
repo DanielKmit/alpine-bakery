@@ -359,39 +359,17 @@ function FindUs() {
             </div>
           </div>
         </div>
-        {/* Map placeholder */}
-        <div className="rounded-2xl overflow-hidden bg-brown-600 flex items-center justify-center min-h-[400px] relative">
-          <div className="text-center text-cream/60 p-8">
-            <svg
-              className="w-12 h-12 mx-auto mb-4 text-wheat/40"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            <p className="font-heading text-lg text-cream/80 mb-2">Innstraße 27</p>
-            <p className="text-sm text-cream/50">6020 Innsbruck, Austria</p>
-            <a
-              href="https://maps.google.com/?q=Innstraße+27+6020+Innsbruck+Austria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 text-wheat text-sm underline underline-offset-4 hover:text-wheat-200 transition-colors"
-            >
-              Open in Google Maps →
-            </a>
-          </div>
+        <div className="rounded-2xl overflow-hidden min-h-[400px] relative">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2706.5!2d11.3905!3d47.2654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479d6ecf1e0216e1%3A0x1234567890abcdef!2sInnstra%C3%9Fe%2027%2C%206020%20Innsbruck%2C%20Austria!5e0!3m2!1sen!2sat!4v1"
+            width="100%"
+            height="100%"
+            style={{ border: 0, minHeight: "400px" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Alpine Bakery — Innstraße 27, Innsbruck"
+          />
         </div>
       </div>
     </section>
