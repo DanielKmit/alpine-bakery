@@ -8,7 +8,7 @@ const PRODUCTS = [
     name: "Sourdough",
     description: "48-hour fermented, stone-baked with a deep, tangy crumb and crispy crust.",
     price: "€4.80",
-    image: "https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&h=600&fit=crop&q=80",
     fresh: ["Monday", "Wednesday", "Friday"],
   },
   {
@@ -22,21 +22,21 @@ const PRODUCTS = [
     name: "Walnut Ciabatta",
     description: "Airy Italian-style bread studded with roasted Tyrolean walnuts.",
     price: "€5.50",
-    image: "https://images.unsplash.com/photo-1549931319-a545753467c8?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1534620808146-d33bb39128b2?w=600&h=600&fit=crop&q=80",
     fresh: ["Monday", "Thursday"],
   },
   {
     name: "Butter Croissant",
     description: "Flaky, golden layers of French-style pastry made with alpine butter.",
     price: "€3.20",
-    image: "https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=600&fit=crop&q=80",
     fresh: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
   },
   {
     name: "Pretzel",
     description: "Traditional Bavarian-style, chewy with a dark, salted crust.",
     price: "€2.80",
-    image: "https://images.unsplash.com/photo-1600353565737-6b5e2e0b5a3e?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1509365390695-33aee754301f?w=600&h=600&fit=crop&q=80",
     fresh: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
   },
   {
@@ -457,4 +457,6 @@ export default function Home() {
       <Footer />
     </main>
   );
+}
+
 }
