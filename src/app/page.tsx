@@ -3,6 +3,28 @@
 import Image from "next/image";
 import { useState } from "react";
 
+/* ─── SVG Schedule Icons ─── */
+const SunIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-brick" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <circle cx="12" cy="12" r="5" />
+    <path strokeLinecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+  </svg>
+);
+
+const CloudSunIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-brick" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+    <circle cx="12" cy="12" r="4" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.5 17a4.5 4.5 0 00-8.9-.9A3.5 3.5 0 006 19.5h11a3 3 0 00.5-5.5z" />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-brick" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+  </svg>
+);
+
 const PRODUCTS = [
   {
     name: "Sourdough",
@@ -52,19 +74,19 @@ const SCHEDULE = [
   {
     time: "Morning",
     hours: "6:00 – 10:00",
-    icon: "☀️",
+    icon: <SunIcon />,
     items: "Sourdough, Croissants, Pretzels, Fresh rolls",
   },
   {
     time: "Afternoon",
     hours: "12:00 – 15:00",
-    icon: "🌤️",
+    icon: <CloudSunIcon />,
     items: "Ciabatta, Rye bread, Focaccia, Sandwiches",
   },
   {
     time: "Evening",
     hours: "16:00 – 18:30",
-    icon: "🌙",
+    icon: <MoonIcon />,
     items: "Strudel, Pastries, Day-end specials (20% off)",
   },
 ];
@@ -86,7 +108,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brown-600/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="font-heading text-cream text-xl tracking-wide">
+          <a href="/" className="font-heading text-cream text-xl tracking-wide">
             Alpine Bakery
           </a>
           {/* Desktop */}
@@ -233,15 +255,23 @@ function OurStory() {
 function ProductCard({ product }: { product: (typeof PRODUCTS)[0] }) {
   const today = getTodayName();
   const isFresh = product.fresh.includes(today);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative aspect-square overflow-hidden bg-wheat-100">
+        {/* Skeleton placeholder */}
+        {!imgLoaded && (
+          <div className="absolute inset-0 bg-wheat-100 animate-pulse" />
+        )}
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          className={`object-cover group-hover:scale-110 transition-all duration-500 ${
+            imgLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setImgLoaded(true)}
         />
         {isFresh && (
           <div className="absolute top-3 right-3 bg-brick text-cream text-xs px-3 py-1 rounded-full font-body uppercase tracking-wider">
@@ -307,7 +337,7 @@ function DailySchedule() {
               key={slot.time}
               className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="text-4xl mb-4">{slot.icon}</div>
+              <div className="flex justify-center mb-4">{slot.icon}</div>
               <h3 className="font-heading text-2xl text-brown mb-1">{slot.time}</h3>
               <p className="text-brick text-sm font-body mb-4">{slot.hours}</p>
               <p className="text-brown-400 text-sm leading-relaxed">{slot.items}</p>
@@ -392,7 +422,7 @@ function Newsletter() {
         </p>
         {submitted ? (
           <div className="bg-white rounded-full px-6 py-4 text-brown">
-            <p className="font-heading text-lg">Welcome to the family! 🍞</p>
+            <p className="font-heading text-lg">Subscribed! Welcome to the family! 🍞</p>
           </div>
         ) : (
           <form
@@ -427,15 +457,20 @@ function Footer() {
   return (
     <footer className="bg-brown-800 text-cream/60 py-12 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="font-heading text-cream text-lg">Alpine Bakery</div>
+        <a href="/" className="font-heading text-cream text-lg">Alpine Bakery</a>
+        <div className="flex gap-6 text-sm">
+          {/* Placeholder legal links */}
+          <a href="#privacy" className="hover:text-wheat transition-colors">Privacy</a>
+          <a href="#terms" className="hover:text-wheat transition-colors">Terms</a>
+        </div>
         <p className="text-sm">
           © {new Date().getFullYear()} Alpine Bakery. Made with flour, water, salt &amp; love.
         </p>
         <div className="flex gap-6 text-sm">
-          <a href="#" className="hover:text-wheat transition-colors">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-wheat transition-colors">
             Instagram
           </a>
-          <a href="#" className="hover:text-wheat transition-colors">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-wheat transition-colors">
             Facebook
           </a>
         </div>
